@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 
+
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -50,3 +52,10 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+
+Route::get('/pdfs', [PdfController::class, 'index'])->name('pdfs.index');
+Route::get('/pdfs/create', [PdfController::class, 'create'])->name('pdfs.create');
+Route::post('/pdfs', [PdfController::class, 'store'])->name('pdfs.store');
+Route::get('/pdfs/{pdf}/download', [PdfController::class, 'download'])->name('pdfs.download');
+Route::get('/pdfs/{pdf}/view', [PdfController::class, 'show'])->name('pdfs.view');
+Route::delete('/pdfs/{pdf}', [PdfController::class, 'destroy'])->name('pdfs.destroy');
