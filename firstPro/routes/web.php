@@ -8,6 +8,7 @@ use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\MailController;
 
 //  Home route
 // Route::get('/', [PostController::class, 'index']);
@@ -61,6 +62,9 @@ Route::get('/pdfs/{pdf}/view', [PdfController::class, 'show'])->name('pdfs.view'
 Route::delete('/pdfs/{pdf}', [PdfController::class, 'destroy'])->name('pdfs.destroy');
 
 
+
+Route::get('/send-email', [MailController::class, 'showForm'])->name('email.form');
+Route::post('/send-email', [MailController::class, 'sendEmail'])->name('email.send');
 
 
 Route::resource('pamblates', PamblateController::class);
