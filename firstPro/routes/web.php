@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\MailController;
-
+use App\Http\Controllers\ApiUserController;
 //  Home route
 // Route::get('/', [PostController::class, 'index']);
 
@@ -68,3 +68,8 @@ Route::post('/send-email', [MailController::class, 'sendEmail'])->name('email.se
 
 
 Route::resource('pamblates', PamblateController::class);
+
+
+
+Route::get('/api-users', [ApiUserController::class, 'index'])->name('api.users');
+
