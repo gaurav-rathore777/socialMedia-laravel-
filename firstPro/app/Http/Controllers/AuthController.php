@@ -27,7 +27,7 @@ class AuthController extends Controller
         if ($user && count($user) > 0) {
             $user = $user[0];
     
-            // ✅ Secure password check
+            Secure password check
             if (Hash::check($password, $user->password)) {
                 session(['user_id' => $user->id]);
                 return redirect('/');
