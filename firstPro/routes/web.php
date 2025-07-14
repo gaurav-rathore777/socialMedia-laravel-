@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 
-
+use App\Http\Controllers\PamblateController;
 use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -59,3 +59,8 @@ Route::post('/pdfs', [PdfController::class, 'store'])->name('pdfs.store');
 Route::get('/pdfs/{pdf}/download', [PdfController::class, 'download'])->name('pdfs.download');
 Route::get('/pdfs/{pdf}/view', [PdfController::class, 'show'])->name('pdfs.view');
 Route::delete('/pdfs/{pdf}', [PdfController::class, 'destroy'])->name('pdfs.destroy');
+
+
+
+
+Route::resource('pamblates', PamblateController::class);
