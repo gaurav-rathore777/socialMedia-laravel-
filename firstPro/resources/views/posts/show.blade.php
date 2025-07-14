@@ -1,3 +1,6 @@
 <div>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
+    <h1>{{ $post->title }}</h1>
+<p>{{ $post->content }}</p>
+<a href="{{ route('posts.index') }}">Back</a>
+
 </div>

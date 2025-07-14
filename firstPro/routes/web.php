@@ -2,24 +2,51 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-// ✅ Home route
-Route::get('/', [PostController::class, 'index']);
 
-// ✅ Auth Routes
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+//  Home route
+// Route::get('/', [PostController::class, 'index']);
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+//  Auth Routes
+// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
+// Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-// ✅ Protected Routes (Only if session has user_id)
-Route::middleware(['auth.session'])->group(function () {
-    Route::resource('posts', PostController::class)->except(['index']);
-});
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// ✅ Publicly accessible posts index (homepage)
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+
+//  Publicly accessible posts index (homepage)  
+// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+// Route::get('/access', function () {
+//     return 'You are old enough!';
+// })->middleware('check.age');
+
+// Route::get('/not-allowed', function () {
+//     return 'Sorry, you are not allowed to access this page.';
+// });
+
+
+// use App\Http\Controllers\PostController;
+
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+

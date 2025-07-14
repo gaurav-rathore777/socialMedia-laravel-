@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>All Posts</title>
 </head>
 <body>
-    <h1>All Posts</h1>
-
+    <h1>All Posts</h1> --}}
+{{-- 
     <a href="{{ route('posts.create') }}">+ Add Post</a>
-    <br><br>
+    <br><br> --}}
 
-    <table border="1" cellpadding="10">
+    {{-- <table border="1" cellpadding="10">
         <tr>
             <th>Title</th>
             <th>Content</th>
             <th>Actions</th>
-        </tr>
-        @foreach ($posts as $post)
+        </tr> --}}
+        {{-- @foreach ($posts as $post)
         <tr>
             <td>{{ $post->title }}</td>
             <td>{{ $post->content }}</td>
@@ -28,11 +28,21 @@
                 </form>
             </td>
         </tr>
-        @endforeach
-    </table>
+        @endforeach --}}
+
+        {{-- @foreach ($posts as $post)
+    <h2>{{ $post->title }}</h2>
+    <p>{{ $post->content }}</p> --}}
+    
+    {{-- @if($post->image)
+        <img src="{{ asset('storage/' . $post->image) }}" width="200">
+    @endif --}}
+{{-- @endforeach --}}
+
+    {{-- </table> --}}
 
 
-    @if(session('error'))
+    {{-- @if(session('error'))
     <p style="color:red;">{{ session('error') }}</p>
 @endif
 
@@ -43,4 +53,5 @@
     <button type="submit">Login</button>
 </form>
 </body>
-</html>
+</html> --}}
+
